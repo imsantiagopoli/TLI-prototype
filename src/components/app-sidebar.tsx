@@ -1,24 +1,23 @@
 import * as React from "react"
+import { useLocation, Link } from "react-router-dom"
 import {
-  ArrowUpCircleIcon,
-  BarChartIcon,
-  CameraIcon,
+  AnchorIcon,
+  BarChart3Icon,
+  BookUserIcon,
   ClipboardListIcon,
-  DatabaseIcon,
-  FileCodeIcon,
-  FileIcon,
   FileTextIcon,
-  FolderIcon,
   HelpCircleIcon,
   LayoutDashboardIcon,
-  ListIcon,
+  MailIcon,
+  PackageIcon,
   SearchIcon,
   SettingsIcon,
-  UsersIcon,
+  ShipIcon,
+  ZapIcon,
 } from "lucide-react"
 
-import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
+import { NavDocuments } from "@/components/nav-documents"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import {
@@ -34,35 +33,40 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "Dhaval Jhaveri",
+    email: "dhaval@tli.com",
+    avatar: "",
   },
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/",
       icon: LayoutDashboardIcon,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: ListIcon,
+      title: "Inbound (AT21)",
+      url: "/inbound",
+      icon: AnchorIcon,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: BarChartIcon,
+      title: "Outbound (AT22)",
+      url: "/outbound",
+      icon: PackageIcon,
     },
     {
-      title: "Projects",
-      url: "#",
-      icon: FolderIcon,
+      title: "Action Queue",
+      url: "/actions",
+      icon: ZapIcon,
     },
     {
-      title: "Team",
-      url: "#",
-      icon: UsersIcon,
+      title: "Email Center",
+      url: "/emails",
+      icon: MailIcon,
+    },
+    {
+      title: "Contacts",
+      url: "/contacts",
+      icon: BookUserIcon,
     },
   ],
   navSecondary: [
@@ -76,27 +80,22 @@ const data = {
       url: "#",
       icon: HelpCircleIcon,
     },
-    {
-      title: "Search",
-      url: "#",
-      icon: SearchIcon,
-    },
   ],
   documents: [
     {
-      name: "Data Library",
-      url: "#",
-      icon: DatabaseIcon,
+      name: "Reports & Export",
+      url: "/reports",
+      icon: FileTextIcon,
     },
     {
-      name: "Reports",
+      name: "AT21 Report (PDF)",
       url: "#",
       icon: ClipboardListIcon,
     },
     {
-      name: "Word Assistant",
+      name: "AT22 Report (PDF)",
       url: "#",
-      icon: FileIcon,
+      icon: ClipboardListIcon,
     },
   ],
 }
@@ -108,15 +107,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <Link to="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <ArrowUpCircleIcon className="size-4" />
+                  <ShipIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Acme Inc.</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-semibold">TLI Home</span>
+                  <span className="truncate text-xs">Operations Platform</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
